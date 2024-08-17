@@ -10,7 +10,7 @@ function getRouteNumber(category) {
         case "Sports": return 21;
         case "Politics": return 24;
         case "Science: Gadgets": return 30;
-        default: return null;
+        default: return 9;
     }
 }
 
