@@ -3,7 +3,8 @@ const User = require('../models/User');
 const QuizAttempt = require('../models/QuizAttempt');
 
 exports.getQuestions = async (req, res) => {
-    const { amount, category, difficulty, type } = req.query;
+    const {amount, category, difficulty, type } = req.body;
+    console.log(amount, category, difficulty, type);
 
     try {
         const questions = await fetchQuestions(amount, category, difficulty, type);
