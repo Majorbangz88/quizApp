@@ -5,7 +5,12 @@ const UserSchema = new mongoose.Schema({
     username: { type: String, required: true, unique: true, },
     email: { type: String, required: true, unique: true, },
     password: { type: String, required: true,},
-    scoreList: {type: JSON, required: false, default: null},
+    scoreList: [{
+        quizId: { type: String },
+        score: { type: Number },
+        date: { type: Date, default: Date.now }
+    }],
+    // scoreList: {type: JSON, required: false, default: null},
 });
 
 UserSchema.pre('save', async function (next) {
