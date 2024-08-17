@@ -25,9 +25,11 @@ exports.registerUser = async (req, res) => {
             },
         };
 
+        const jwtSecret = process.env.JWT_SECRET;
+        console.log(jwtSecret)
         jwt.sign(
             payload,
-            process.env.JWT_SECRET,
+            jwtSecret,
             { expiresIn: '1h' },
             (err, token) => {
                 if (err) throw err;
@@ -35,7 +37,7 @@ exports.registerUser = async (req, res) => {
             }
         );
     } catch (error) {
-        res.status(500).json({ message: 'Server error' });
+        res.status(500).json({ message: error.message });
     }
 };
 
@@ -69,7 +71,7 @@ exports.loginUser = async (req, res) => {
             }
         );
     } catch (error) {
-        res.status(500).json({ message: 'Server error' });
+        res.status(500).json({ message: error.message });
     }
 };
 
