@@ -1,9 +1,6 @@
 const axios = require('axios');
 const getRouteNumber = require('../utils/categoryMapping');
 
-const API_URL = process.env.QUIZ_API_URL
-// https://opentdb.com/api.php?amount=20&category=${routeNumber}&difficulty=${difficultyLevel.toLowerCase()}&type=multiple;
-
 const fetchQuestions = async (amount = 20, category = '', difficulty = 'medium', type = 'multiple') => {
     try {
         const categoryID = getRouteNumber(category);
